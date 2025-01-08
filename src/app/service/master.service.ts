@@ -11,6 +11,10 @@ export class MasterService {
   http = inject(HttpClient);
   apiUrl = environment.API_URL
 
+  constructor(){
+    
+  }
+
 
   public view_bus_seat_data$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
 
