@@ -1,0 +1,58 @@
+<div class="container mx-auto px-4 py-8 bg-red-100 min-h-screen">
+
+    <div class="header flex justify-center mb-8">
+        <h1 class="text-3xl font-bold text-red-700">India's No. 1 Online Bus Ticket Booking Site</h1>
+    </div>
+
+    <div class="search-container bg-white rounded-lg shadow-md p-6 w-[90%] m-auto">
+        <form>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+            
+            <div class="input-field">
+                <div
+                    class="flex items-center border rounded-md px-2 py-2 focus-within:ring-2 focus-within:ring-red-300">
+                    <img src="https://cdn-icons-png.flaticon.com/512/61/61985.png" alt="Bus Icon" class="h-6 w-6 mr-2">
+                    <select [(ngModel)]="selectedFrom" class="w-full border-none outline-none" name="selectedFrom">
+                        <option value="">From</option>
+                        <option *ngFor="let item of show_location" [value]="item?.fromLocationName">{{ item?.fromLocationName }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="swap-icon flex items-center justify-around">
+                <button (click)="swapCities()"
+                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                    <mat-icon>swap_horiz</mat-icon>
+                </button>
+            </div>
+
+            <div class="input-field">
+                <div
+                    class="flex items-center border rounded-md px-3 py-2 focus-within:ring-2 focus-within:ring-red-300">
+                    <img src="https://cdn-icons-png.flaticon.com/512/61/61985.png" alt="Bus Icon" class="h-6 w-6 mr-2">
+                    <select [(ngModel)]="selectedTo" class="w-full border-none outline-none" name="selectedTo">
+                        <option value="">To</option>
+                        <option *ngFor="let item of show_location" [value]="item?.toLocationName">{{ item?.
+                            toLocationName}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-field">
+                <div
+                    class="flex items-center border rounded-md px-3 py-2 mx-11 focus-within:ring-2 focus-within:ring-red-300">
+                    <mat-icon class="mr-2">calendar_today</mat-icon>
+                    <input type="date" [(ngModel)]="selectedDate" name="selectedDate" required
+                        class="w-full border-none outline-none">
+                </div>
+            </div>
+
+            <div class="md:col-span-4 w-[60%] m-auto py-4">
+                <button type="submit" class="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                    (click)="searchBuses()">SEARCH BUSES</button>
+            </div>
+            
+        </div>
+    </form>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="container mx-auto p-6">
+    <h1 class="text-2xl font-bold text-center mb-6">Book Your Bus Seat</h1>
+  
+    <div class="grid grid-cols-4 gap-4 max-w-lg mx-auto border p-4 rounded-lg shadow-md">
+      @for (item of seats; track $index) {
+        
+      }
+      <div
+        *ngFor="let seat of seats; let i = index"
+        (click)="toggleSeat(i)"
+        [ngClass]="{
+          'bg-green-500 text-white': seat.isSelected,
+          'bg-gray-300': !seat.isSelected && !seat.isBooked,
+          'bg-red-500 text-white cursor-not-allowed': seat.isBooked
+        }"
+        class="seat w-12 h-12 rounded-lg flex items-center justify-center cursor-pointer"
+        [class.pointer-events-none]="seat.isBooked"
+      >
+        {{ seat.number }}
+      </div>
+     
+    </div>
+    <div class="mt-6 text-center">
+        <button
+          class="bg-blue-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-600 disabled:opacity-50"
+          [disabled]="selectedSeats.length === 0"
+          (click)="bookSeats()"
+        >
+          Book Selected Seats
+        </button>
+      </div>
+  
+  
+    <!-- Selected Seat Details -->
+    <!-- <div class="mt-4 text-center" *ngIf="selectedSeats.length > 0">
+      <p class="text-lg font-medium">
+        Selected Seats: {{ selectedSeats?.map(seat => seat.number).join(', ') }}
+      </p>
+    </div> -->
+  </div>
+  

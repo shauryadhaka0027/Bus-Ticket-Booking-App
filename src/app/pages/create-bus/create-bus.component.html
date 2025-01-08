@@ -1,0 +1,156 @@
+<app-navbar></app-navbar>
+<div class="max-w-3xl mx-auto bg-white p-6 shadow-md rounded-lg mt-2">
+    <h2 class="text-2xl font-bold text-center mb-6">Bus Details Form</h2>
+  
+    <form [formGroup]="busForm"  class="space-y-4">
+      <!-- Bus Number -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Bus Number</label>
+        <input
+          type="text"
+          name="bus_number"
+          formControlName="bus_number"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
+          required
+        />
+      </div>
+  
+      <!-- Route Name -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Route Name</label>
+        <input
+          type="text"
+          name="route_name"
+          formControlName="route_name"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
+          required
+        />
+      </div>
+  
+      <!-- Arrival Time -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Arrival Time</label>
+        <input
+          type="datetime-local"
+          name="arrival_time"
+          formControlName="arrival_time"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
+          required
+        />
+      </div>
+  
+      <!-- Departure Time -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Departure Time</label>
+        <input
+          type="datetime-local"
+          name="departure_time"
+          formControlName="departure_time"
+          
+          class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
+          required
+        />
+      </div>
+  
+      <!-- Total Seats -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Total Seats</label>
+        <input
+          type="text"
+          name="total_seats"
+          formControlName="total_seats"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
+          required
+        />
+      </div>
+  
+      <!-- Seats Available -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Seats Available</label>
+        <input
+          type="text"
+          name="seats_available"
+         formControlName="seats_available"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
+          required
+        />
+      </div>
+  
+      <!-- From Location -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">From Location</label>
+        <input
+          type="text"
+          name="fromLocationName"
+          formControlName="fromLocationName"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
+          required
+        />
+      </div>
+  
+      <!-- To Location -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">To Location</label>
+        <input
+          type="text"
+          name="toLocationName"
+          formControlName="toLocationName"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
+          required
+        />
+      </div>
+  
+      <!-- Ticket Price -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Ticket Price</label>
+        <input
+          type="text"
+          name="ticket_price"
+          formControlName="ticket_price"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
+          required
+        />
+      </div>
+  
+      <!-- Vendor Name -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Vendor Name</label>
+        <input
+          type="text"
+          name="vender_name"
+          formControlName="vender_name"
+          
+          class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
+          required
+        />
+      </div>
+  
+      <!-- Travel Date -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Travel Date</label>
+        <input
+          type="date"
+          name="travel_date"
+          formControlName="travel_date"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
+          required
+        />
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button
+          [disabled]="busForm.invalid"
+          [class.opacity-50]="busForm.invalid"
+          (click)="onSubmit()"
+          type="submit"
+          class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+  
+
+

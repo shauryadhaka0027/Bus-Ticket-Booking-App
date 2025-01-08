@@ -1,0 +1,17 @@
+.tickets-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .ticket-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    margin-top: 0;
+  }
+  

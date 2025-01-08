@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+<!-- <div class="tickets-container p-6 bg-gray-100 min-h-screen">
+  <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">My Booking List</h2>
+  <div *ngIf="tickets.length > 0; else noTickets" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div *ngFor="let ticket of tickets" class="ticket-card bg-white shadow-lg rounded-lg p-6 border border-gray-200">
+      <h3 class="text-lg font-semibold text-indigo-600 mb-4">Ticket ID: {{ ticket.ticketId }}</h3>
+      <p class="text-gray-700 mb-2"><span class="font-bold">Seat Number:</span> {{ ticket.seat_number }}</p>
+      <p class="text-gray-700 mb-2"><span class="font-bold">Bus Number:</span> {{ ticket.bus_id.bus_number }}</p>
+      <p class="text-gray-700 mb-2"><span class="font-bold">Route:</span> {{ ticket.bus_id.route_name }}</p>
+      <p class="text-gray-700 mb-2"><span class="font-bold">Arrival Time:</span> {{ ticket.bus_id.arrival_time | date: 'short' }}</p>
+      <p class="text-gray-700 mb-2"><span class="font-bold">Departure Time:</span> {{ ticket.bus_id.departure_time | date: 'short' }}</p>
+      <p class="text-gray-700 mb-2"><span class="font-bold">User Name:</span> {{ ticket.user_id.name }}</p>
+      <p class="text-gray-700"><span class="font-bold">User Email:</span> {{ ticket.user_id.email }}</p>
+    </div>
+  </div>
+  <ng-template #noTickets>
+    <p class="text-center text-gray-600 text-lg mt-12">No tickets found.</p>
+  </ng-template>
+</div> -->
+
+<div class="tickets-container p-6 bg-gray-100 min-h-screen">
+  <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">My Booking List</h2>
+  <div *ngIf="tickets.length > 0; else noTickets" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div *ngFor="let ticket of tickets" class="bg-white shadow-lg rounded-lg p-6 border border-gray-200">
+      <div class="flex justify-between items-center mb-4">
+        <p class="text-xs font-bold uppercase text-gray-700">Journey (Paper-Ticket)</p>
+        <p class="text-sm font-bold text-gray-700">
+          Fare: <span class="text-orange-500">₹ {{
+            ticket.bus_id.
+            ticket_price
+            }}</span>
+        </p>
+      </div>
+      <div class="flex items-center justify-between bg-gray-100 p-2 rounded-md mb-4">
+        <div class="text-center">
+          <p class="text-xs text-gray-500">S</p>
+          <p class="font-semibold text-sm text-gray-700">{{ ticket.bus_id.fromLocationName || 'N/A' }}</p>
+        </div>
+        <div class="w-6 h-6 flex items-center justify-center bg-orange-100 rounded-full">
+          <span class="text-orange-500 font-semibold">D</span>
+        </div>
+        <div class="text-center">
+          <p class="text-xs text-gray-500">D</p>
+          <p class="font-semibold text-sm text-gray-700">{{ ticket.bus_id.
+            toLocationName || 'N/A' }}</p>
+        </div>
+      </div>
+      <div class="text-sm text-gray-600 mb-2">
+        <p><span class="font-bold">Via:</span> {{ ticket.
+          user_id.name
+          || 'N/A' }}</p>
+      </div>
+      <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
+        <p><span class="font-bold">Adult:</span> {{ ticket.adult || '1' }} <span class="font-bold">Child:</span> {{
+          ticket.child || '0' }}</p>
+          <p class="text-gray-700 mb-2"><span class="font-bold">Bus Number:</span> {{ ticket.bus_id.bus_number }}</p>
+        <p><span class="font-bold">Booking Date:</span> {{ ticket.bus_id.
+          travel_date  }}</p>
+        <p><span class="font-bold">UTS No:</span> {{ ticket.ticketId
+          }}</p>
+           <p class="text-gray-700"><span class="font-bold">User Email:</span> {{ ticket.user_id.email }}</p>
+      </div>
+     <div class="flex justify-between">
+      <button (click)="cancelTicket(ticket._id)" class="mt-4 text-orange-500 text-sm font-semibold hover:underline">
+        → Cancel Ticket
+      </button>
+      <button (click)="downloadPdf(ticket._id)" class="mt-4 text-orange-500 text-sm font-semibold hover:underline">
+        Download PDF
+      </button>
+     </div>
+    </div>
+  </div>
+  <ng-template #noTickets>
+    <p class="text-center text-gray-600 text-lg mt-12">No tickets found.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,38 @@
+<nav class="bg-white p-4 shadow-md flex items-center justify-between"  (document:click)="onDocumentClick($event)">
+    <div class="w-[80%] m-auto flex justify-between">
+    <div class="flex items-center">
+      <img routerLink="/home" src="https://i.pinimg.com/originals/7e/f2/4d/7ef24db3928b30fd17586d85d5c1e912.jpg" alt="redBus Logo" class="h-20 cursor-pointer  ">
+    </div>
+  
+    <div class="flex items-center space-x-9 ">
+      <button class="flex items-center text-gray-700 hover:text-red-500 focus:outline-none">
+          <mat-icon class="inline-block mr-1">help_outline</mat-icon>
+        Help
+      </button>
+      <div class="relative">
+        <button class="flex items-center text-gray-700 hover:text-red-500 focus:outline-none" (click)="toggleLanguage($event)">
+          English <mat-icon class="inline-block ml-1">arrow_drop_down</mat-icon>
+        </button>
+        <div *ngIf="showLanguages" class="absolute right-0 mt-2 bg-white rounded-md shadow-lg py-1 w-24"  #languageMenu>
+          <!-- <a  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hindi</a>
+          <a  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Other</a> -->
+        </div>
+      </div>
+      <div class="flex items-center space-x-4">
+        <div class="relative">
+          <button class="flex items-center text-gray-700 hover:text-red-500 focus:outline-none" (click)="toggleAccount($event)">
+            <mat-icon class="inline-block mr-1">account_circle</mat-icon>
+            Account <mat-icon class="inline-block ml-1">arrow_drop_down</mat-icon>
+          </button>
+          <div *ngIf="showAccountOptions" class="absolute right-0 mt-2 bg-white rounded-md shadow-lg py-1 w-40"  #accountMenu>
+            <a  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Profile</a>
+            <a routerLink="/mybooking_list" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Bookings</a>
+            <a *ngIf="userRole === 'admin'" routerLink="/create_bus" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Create Bus</a>
+            <div class="border-t border-gray-200 my-1"></div> <a href="#" class="block px-4 py-2 text-sm text-red-500 hover:bg-gray-100" (click)="logoutUser()">Logout</a>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+</div>
+  </nav>

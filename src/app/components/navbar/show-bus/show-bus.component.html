@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<div class="flex justify-center text-3xl py-2">
+    Show Buses 
+</div>
+<div
+    class="flex flex-col mt-5 boder-2 lg:flex-row items-center justify-between bg-white shadow-md rounded-lg p-4 border border-gray-200">
+    @for (item of bus_search_data; track $index) {
+    <div class="flex items-start space-x-4 flex-col">
+       
+        <div>
+            <h2 class="font-semibold text-lg">{{item.vender_name}}</h2>
+            <p class="text-sm text-gray-500">Electric A/C Seater (2+2)</p>
+        </div>
+    </div>
+
+    <div class="flex-col  items-center text-center  h-28 py-7">
+        <div class="flex items-center space-x-32">
+            <span class="text-2xl font-bold">{{item.
+                arrival_time | date:'hh:mm a'}}</span>
+            <span class="text-sm text-gray-500">06h 00m</span>
+            <span class="text-lg font-bold">{{item.
+                departure_time | date:'hh:mm a'}}</span>
+        </div>
+        <div class="flex  items-center  justify-center -space-x-96  py-4">
+
+            <p class="text-sm text-gray-400">
+                {{item.fromLocationName}}
+            </p>
+
+            <p class="text-sm text-gray-400">
+                {{item.toLocationName}}
+            </p>
+        </div>
+    </div>
+   
+    <div class="text-right">
+        <div class="flex items-center justify-end">
+            <span class="text-green-600 font-bold text-lg">Starts from</span>
+            <span class="text-2xl font-bold text-green-600 ml-2">₹{{item.ticket_price}}</span>
+        </div>
+        <p class="text-sm text-gray-400">{{item.
+            seats_available}} Seats available | 8 Window</p>
+
+    </div>
+
+    <div class="mt-4 lg:mt-0">
+        <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"  (click)="onClick_viewSeat(item._id)">
+            View Seats
+        </button>
+    </div>
+    }
+</div>
