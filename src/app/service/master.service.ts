@@ -2,13 +2,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MasterService {
   http = inject(HttpClient);
-  apiUrl = 'http://localhost:3000/api';
+  apiUrl = environment.API_URL
 
 
   public view_bus_seat_data$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
